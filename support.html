@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Compound.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0E1A;
+            --card: #111827;
+            --elevated: #1F2937;
+            --input: #1A1F2E;
+            --accent: #00E5CC;
+            --accent-blue: #3B82F6;
+            --success: #10B981;
+            --text: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --text-tertiary: #6B7280;
+            --border: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 48px;
+        }
+
+        .contact-card h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        .faq-section h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .faq-item a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .faq-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 32px; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo">
+                <img src="icon.png" alt="Compound" class="logo-icon">
+                Compound.
+            </a>
+        </header>
+
+        <main>
+            <h1>Support</h1>
+            <p class="subtitle">We're here to help you get the most out of Compound.</p>
+
+            <div class="contact-card">
+                <h2>Contact Us</h2>
+                <p>Have a question, feedback, or need help? Reach out and we'll get back to you as soon as possible.</p>
+                <a href="mailto:support@compoundcalc.app">support@compoundcalc.app</a>
+            </div>
+
+            <section class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3>How do I calculate compound interest?</h3>
+                    <p>Enter your principal amount, interest rate, and time period. Select your compounding frequency (daily, monthly, quarterly, or yearly) and tap Calculate to see your results with a detailed breakdown.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What calculator modes are available?</h3>
+                    <p>Compound. offers four modes: Compound Interest, Simple Interest, Daily Interest, and Forex calculations. Switch between them using the tabs at the top of the calculator.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I remove ads?</h3>
+                    <p>Upgrade to Premium through the app settings to enjoy an ad-free experience along with additional features like unlimited saved calculations.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I restore my purchase?</h3>
+                    <p>Go to Settings → Restore Purchases. Make sure you're signed into the same Apple ID that was used for the original purchase. If you continue to have issues, contact us.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I save my calculations?</h3>
+                    <p>Yes! After calculating, tap the Save button to store your calculation. Access your saved calculations from the Saved tab. Premium users get unlimited saves.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is my data private?</h3>
+                    <p>Absolutely. All calculations are performed locally on your device. We don't collect or store any of your financial data. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="copyright">© 2025 Compound. All rights reserved.</div>
+        </footer>
+    </div>
+</body>
+</html>

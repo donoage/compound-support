@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound. - Simple Interest Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0E1A;
+            --card: #111827;
+            --elevated: #1F2937;
+            --input: #1A1F2E;
+            --accent: #00E5CC;
+            --accent-blue: #3B82F6;
+            --success: #10B981;
+            --text: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --text-tertiary: #6B7280;
+            --border: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent);
+        }
+
+        h1 {
+            font-size: clamp(40px, 8vw, 64px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        h1 .accent {
+            background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+            color: #000;
+            box-shadow: 0 8px 24px rgba(0, 229, 204, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 229, 204, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: var(--elevated);
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(0, 229, 204, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Preview Section */
+        .preview {
+            padding: 60px 0 80px;
+            text-align: center;
+        }
+
+        .preview-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .preview h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 48px;
+            letter-spacing: -0.5px;
+        }
+
+        .phone-mockup {
+            width: 260px;
+            height: 520px;
+            background: var(--card);
+            border-radius: 36px;
+            border: 3px solid var(--border);
+            margin: 0 auto;
+            padding: 10px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 60px rgba(0, 229, 204, 0.1);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            border-radius: 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .phone-screen .calc-display {
+            font-size: 44px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .phone-screen .calc-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        @media (max-width: 640px) {
+            header { flex-direction: column; gap: 16px; }
+            nav { gap: 20px; }
+            .hero { padding: 60px 0 50px; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="icon.png" alt="Compound" class="logo-icon">
+                Compound.
+            </div>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Available on the App Store
+            </div>
+            <h1>Calculate <span class="accent">smarter</span>,<br>grow faster</h1>
+            <p class="hero-subtitle">
+                The simplest way to calculate compound interest and visualize your investment growth over time.
+            </p>
+            <div class="cta-group">
+                <a href="#" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    Download App
+                </a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>4 Calculator Modes</h3>
+                    <p>Compound, Simple, Daily, and Forex interest calculations for any scenario.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Visual Charts</h3>
+                    <p>Interactive growth charts with detailed yearly breakdowns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>Save & Compare</h3>
+                    <p>Save your calculations and compare different scenarios.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌗</div>
+                    <h3>Dark & Light</h3>
+                    <p>Beautiful themes that adapt to your preference.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview">
+            <div class="preview-label">App Preview</div>
+            <h2>Simple, powerful, beautiful</h2>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="calc-display">$12,682</div>
+                    <div class="calc-label">Future Value</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-links">
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="copyright">© 2025 Compound. All rights reserved.</div>
+        </footer>
+    </div>
+</body>
+</html>
